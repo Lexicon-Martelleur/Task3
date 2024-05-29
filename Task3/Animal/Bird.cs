@@ -1,4 +1,7 @@
-﻿namespace Task3.Animal;
+﻿using System.Text;
+using Task3.Lib;
+
+namespace Task3.Animal;
 
 /// <summary>
 /// Base class for birds.
@@ -19,6 +22,14 @@ internal class Bird : Animal
 
     internal override string DoSound()
     {
-        return "Multiple sounds, e.g., chirping, whistling, croaking, and mocking.";
+        return "E.g., chirping, whistling, croaking, and mocking.";
+    }
+
+    internal override string Stats()
+    {
+        var baseStats = base.Stats();
+        var stringBuilder = new StringBuilder(baseStats);
+        stringBuilder.AppendLine($"{nameof(WingSpan)}: {WingSpan}".ConstructArrowListItem());
+        return stringBuilder.ToString();
     }
 }

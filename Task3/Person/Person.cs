@@ -18,8 +18,6 @@ public class Person : IPerson
     private double _height;
 
     private double _weight;
-
-    private bool _talk;
     #endregion
 
     [AgeValidation]

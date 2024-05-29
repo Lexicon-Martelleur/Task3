@@ -2,6 +2,9 @@
 
 namespace Task3.Lib;
 
+/// <summary>
+/// Utility class used for validation.
+/// </summary>
 public static class AppValidator
 {
     /// <summary>

@@ -1,4 +1,7 @@
-﻿namespace Task3.Animal;
+﻿using System.Text;
+using Task3.Lib;
+
+namespace Task3.Animal;
 
 internal class Swan : Bird
 {
@@ -12,5 +15,18 @@ internal class Swan : Bird
         bool dangerous) : base(name, weight, age, wingSpan)
     {
         Dangerous = dangerous;
+    }
+
+    internal override string Stats()
+    {
+        var baseStats = base.Stats();
+        var stringBuilder = new StringBuilder(baseStats);
+        stringBuilder.AppendLine($"{nameof(Dangerous)}: {Dangerous}".ConstructArrowListItem());
+        return stringBuilder.ToString();
+    }
+
+    internal override string DoSound()
+    {
+        return "Growl, whistle and snort";
     }
 }
