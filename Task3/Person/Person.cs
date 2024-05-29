@@ -18,6 +18,8 @@ public class Person : IPerson
     private double _height;
 
     private double _weight;
+
+    private bool _talk;
     #endregion
 
     [AgeValidation]
@@ -43,7 +45,7 @@ public class Person : IPerson
     public double Height { get => _height; set => _height = value; }
 
     public double Weight { get => _weight; set => _weight = value; }
-
+    
     public Person(string fName, string lName)
     {
         FName = fName;

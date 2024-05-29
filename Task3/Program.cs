@@ -41,3 +41,11 @@ foreach (var userError in userErrors)
     Console.WriteLine($"\n{userError.UEMessage()}");
 }
 #endregion
+
+#region 3.3 Inheritance
+
+# endregion
+
+#region 3.4 More Polymorphism
+
+# endregion

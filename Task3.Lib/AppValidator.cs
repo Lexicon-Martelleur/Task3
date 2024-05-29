@@ -4,6 +4,16 @@ namespace Task3.Lib;
 
 public static class AppValidator
 {
+    /// <summary>
+    /// A utility method used to check the value of a property using the
+    /// properties validation attributes.  
+    /// </summary>
+    /// <typeparam name="Value">The type of the property</typeparam>
+    /// <param name="instance">The instance</param>
+    /// <param name="prop">The name of the property</param>
+    /// <param name="value">The value of the property</param>
+    /// <returns name="Value"></returns>
+    /// <exception cref="ArgumentException"></exception>
     public static Value IsValidProp<Value>(
         object instance,
         string prop,
