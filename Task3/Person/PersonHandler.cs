@@ -1,7 +1,8 @@
 ﻿namespace Task3.Person;
 
 /// <summary>
-/// A controller and factory class for a <see cref="IPerson"/>
+/// A controller and factory class used to
+/// encapsulate operations for a <see cref="IPerson"/>
 /// </summary>
 internal class PersonHandler
 {

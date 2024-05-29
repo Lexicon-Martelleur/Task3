@@ -4,7 +4,7 @@ using Task3.Lib;
 namespace Task3.Person;
 
 /// <summary>
-/// A class to create validated instances of <see cref="IPerson"/>.
+/// A class used to create validated instances of <see cref="IPerson"/>.
 /// </summary>
 public class Person : IPerson
 {

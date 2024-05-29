@@ -1,5 +1,7 @@
 ﻿using Task3.Person;
+using Task3.UserError;
 
+# region 3.1 Encapsulation
 var personHandler = new PersonHandler();
 try
 {
@@ -23,3 +25,19 @@ catch (ArgumentException ex)
 {
     Console.WriteLine(ex.Message);
 }
+#endregion
+
+# region 3.2 Polymorphism
+List<UserError> userErrors = [
+    new TextInputError(),
+    new NumericInputError(),
+    new MockOneUserError(),
+    new MockTwoUserError(),
+    new MockThreeUserError()
+];
+
+foreach (var userError in userErrors)
+{
+    Console.WriteLine($"\n{userError.UEMessage()}");
+}
+#endregion
