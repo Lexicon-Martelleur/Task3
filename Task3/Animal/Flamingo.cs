@@ -17,16 +17,16 @@ internal class Flamingo : Bird
         LegLength = legLength;
     }
 
+    internal override string DoSound()
+    {
+        return "Nasal honking to grunting or growling";
+    }
+
     internal override string Stats()
     {
         var baseStats = base.Stats();
         var stringBuilder = new StringBuilder(baseStats);
         stringBuilder.AppendLine($"{nameof(LegLength)}: {LegLength}".ConstructArrowListItem());
         return stringBuilder.ToString();
-    }
-
-    internal override string DoSound()
-    {
-        return "Nasal honking to grunting or growling";
     }
 }

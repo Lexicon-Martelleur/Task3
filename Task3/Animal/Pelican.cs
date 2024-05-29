@@ -17,16 +17,16 @@ internal class Pelican : Bird
         BeakSize = beakSize;
     }
 
+    internal override string DoSound()
+    {
+        return "Low, brief grunts";
+    }
+
     internal override string Stats()
     {
         var baseStats = base.Stats();
         var stringBuilder = new StringBuilder(baseStats);
         stringBuilder.AppendLine($"{nameof(BeakSize)}: {BeakSize}".ConstructArrowListItem());
         return stringBuilder.ToString();
-    }
-
-    internal override string DoSound()
-    {
-        return "Low, brief grunts";
     }
 }

@@ -15,4 +15,9 @@ internal class WolfMan : Wolf, IPerson
         double runningSpeed) : base(name, weight, age, runningSpeed) { }
 
     public string Talk() {  return "I can talk with animals"; }
+
+    internal override string Stats()
+    {
+        return base.Stats();
+    }
 }

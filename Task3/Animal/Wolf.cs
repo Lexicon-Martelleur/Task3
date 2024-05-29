@@ -1,4 +1,7 @@
-﻿namespace Task3.Animal;
+﻿using System.Text;
+using Task3.Lib;
+
+namespace Task3.Animal;
 
 internal class Wolf : Animal
 {
@@ -17,5 +20,13 @@ internal class Wolf : Animal
     internal override string DoSound()
     {
         return "Howling";
+    }
+
+    internal override string Stats()
+    {
+        var baseStats = base.Stats();
+        var stringBuilder = new StringBuilder(baseStats);
+        stringBuilder.AppendLine($"{nameof(RunningSpeed)}: {RunningSpeed}".ConstructArrowListItem());
+        return stringBuilder.ToString();
     }
 }

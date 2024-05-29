@@ -1,4 +1,7 @@
-﻿namespace Task3.Animal;
+﻿using System.Text;
+using Task3.Lib;
+
+namespace Task3.Animal;
 
 internal class Worm : Animal
 {
@@ -17,5 +20,13 @@ internal class Worm : Animal
     internal override string DoSound()
     {
         return "Silent";
+    }
+
+    internal override string Stats()
+    {
+        var baseStats = base.Stats();
+        var stringBuilder = new StringBuilder(baseStats);
+        stringBuilder.AppendLine($"{nameof(Poisonous)}: {Poisonous}".ConstructArrowListItem());
+        return stringBuilder.ToString();
     }
 }

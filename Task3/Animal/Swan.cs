@@ -17,16 +17,16 @@ internal class Swan : Bird
         Dangerous = dangerous;
     }
 
+    internal override string DoSound()
+    {
+        return "Growl, whistle and snort";
+    }
+
     internal override string Stats()
     {
         var baseStats = base.Stats();
         var stringBuilder = new StringBuilder(baseStats);
         stringBuilder.AppendLine($"{nameof(Dangerous)}: {Dangerous}".ConstructArrowListItem());
         return stringBuilder.ToString();
-    }
-
-    internal override string DoSound()
-    {
-        return "Growl, whistle and snort";
     }
 }
