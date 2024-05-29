@@ -159,6 +159,13 @@ void TaskMorePolymorphism3()
             var phraseListItem = $"\n{phrase?.ConstructArrowListItem()}";
             Console.WriteLine(stats + sounds + phraseListItem);
         }
+        else if (animal is AnimalModule.Dog)
+        {
+            var dog = (AnimalModule.Dog)animal;
+            dog.Owner = personHandler.CreatePerson(30, "Lars", "Scott", 180, 80);
+            var owner = $"\n{dog.GetOwnerAsString().ConstructArrowListItem("Owner")}";
+            Console.WriteLine(stats + sounds + owner);
+        }
         else
         {
             Console.WriteLine(stats + sounds);
