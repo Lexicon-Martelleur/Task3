@@ -14,6 +14,11 @@ internal class WolfMan : Wolf, IPerson
         double age,
         double runningSpeed) : base(name, weight, age, runningSpeed) { }
 
+    internal override string DoSound()
+    {
+        return "Howling and Speaking";
+    }
+
     public string Talk() {  return "I can talk with animals"; }
 
     internal override string Stats()
