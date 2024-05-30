@@ -24,16 +24,8 @@ public static class AppValidator
     {
         var context = new ValidationContext(instance) { MemberName = prop };
         var validations = new List<ValidationResult>();
-
-        try
-        {
-            var isValid = Validator.TryValidateProperty(value, context, validations);
-            return CheckValidationResult(isValid, validations, value);
-        }
-        catch
-        {
-            throw new ArgumentException($"Invalid property {prop} for {instance.GetType().FullName}");
-        }
+        var isValid = Validator.TryValidateProperty(value, context, validations);
+        return CheckValidationResult(isValid, validations, value);
     }
 
     private static Value CheckValidationResult<Value>(

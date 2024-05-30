@@ -16,7 +16,7 @@ void TaskEncapsulation()
     try
     {
         List<PersonModule.IPerson> group = [
-            personHandler.CreatePerson(20, "Jon", "Mayer", 185, 85),
+            personHandler.CreatePerson(20, "Joe", "Mayer", 185, 85),
             personHandler.CreatePerson(19, "Martin", "Mayer", 180, 80),
             personHandler.CreatePerson(15, "Lars", "Mayer", 160, 65),
             personHandler.CreatePerson(14, "Eric", "Mayer", 150, 55),
@@ -34,7 +34,7 @@ void TaskEncapsulation()
     }
     catch (ArgumentException ex)
     {
-        Console.WriteLine(ex.Message);
+        Console.WriteLine(ex);
     }
 }
 #endregion
@@ -82,6 +82,7 @@ void TaskMorePolymorphism1()
     {
         var stats = animal.Stats();
         var sounds = animal.DoSound().ConstructArrowListItem("Sound");
+        // Check if animal is IPerson, if so use Talk method by casting to IPerson.  
         if (animal is AnimalModule.IPerson)
         {
             var animalPerson = (AnimalModule.IPerson)animal;
@@ -97,10 +98,10 @@ void TaskMorePolymorphism1()
 }
 
 // 3.4.8 and
-// 3.4.9 Can not add type horse to a list of type dogs because they are not same type.
-// A Horse type can not be converted to a Dog type.
-//var horse = new Horse("Freja", 200, 5, true);
-//dogs.Add(horse);
+// 3.4.9 Can not add type horse to a list of type dogs because they are not same type,
+// and a Horse type can not be converted to a Dog type.
+// var horse = new Horse("Freja", 200, 5, true);
+// dogs.Add(horse);
 // 3.4.14 - 15
 void TaskMorePolymorphism2()
 {
@@ -110,10 +111,12 @@ void TaskMorePolymorphism2()
         {
             Owner = personHandler.CreatePerson(30, "Jon", "Scott", 180, 80)
         },
-        new("Lisa", 20, 1, "Flat"){
+        new("Lisa", 20, 1, "Flat")
+        {
             Owner = personHandler.CreatePerson(30, "Lisa", "Scott", 180, 80)
         },
-        new("Lassi", 20, 1, "Flat"){
+        new("Lassi", 20, 1, "Flat")
+        {
             Owner = personHandler.CreatePerson(30, "Lars", "Scott", 180, 80)
         }
     };
@@ -130,7 +133,7 @@ void TaskMorePolymorphism2()
 
 // 3.4.10  Use List<Animal> to mix all animals in the list.
 // 3.4.11-13
-// Writing data about some animal listed in animals.
+// Writing data about all animal listed in animals.
 // Stats and DoSound use the most specific implementation for each animal. 
 void TaskMorePolymorphism3()
 {
@@ -152,6 +155,7 @@ void TaskMorePolymorphism3()
     {
         var stats = animal.Stats();
         var sounds = animal.DoSound().ConstructArrowListItem("Sound");
+        // Check if animal is IPerson, if so use Talk method by casting to IPerson.  
         if (animal is AnimalModule.IPerson)
         {
             var animalPerson = (AnimalModule.IPerson)animal;
@@ -159,6 +163,10 @@ void TaskMorePolymorphism3()
             var phraseListItem = $"\n{phrase?.ConstructArrowListItem()}";
             Console.WriteLine(stats + sounds + phraseListItem);
         }
+
+        // 3.4.16 - 18.
+        // An ANimal type do not have method GetOwnerAsString, to use it, 
+        // check if animal is Dog and then use GetOwnerAsString method by casting to Dog.
         else if (animal is AnimalModule.Dog)
         {
             var dog = (AnimalModule.Dog)animal;
